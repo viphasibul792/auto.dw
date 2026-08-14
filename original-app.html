@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive Utility Suite</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: #ffffff;
+            max-width: 650px;
+            width: 100%;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+            color: #1a73e8;
+            text-align: center;
+        }
+        p {
+            color: #5f6368;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            border-bottom: 2px solid #dadce0;
+            margin-bottom: 20px;
+        }
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            color: #5f6368;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            border-radius: 0;
+        }
+        .tab-btn:hover {
+            background-color: #f1f3f4;
+            color: #1a73e8;
+        }
+        .tab-btn.active {
+            color: #1a73e8;
+            border-bottom: 3px solid #1a73e8;
+        }
+
+        /* Tab Content Panel */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 12px;
+            border: 1px solid #dadce0;
+            border-radius: 6px;
+            font-size: 14px;
+            resize: vertical;
+            margin-top: 10px;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #1a73e8;
+        }
+        .btn-container {
+            margin-top: 15px;
+            text-align: center;
+        }
+        button.action-btn {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button.action-btn:hover {
+            background-color: #1557b0;
+        }
+        button.action-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .status {
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+        }
+        .note {
+            background-color: #e8f0fe;
+            border-left: 4px solid #1a73e8;
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 13px;
+            color: #1967d2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Google Drive Tool Suite</h2>
+
+    <!-- Navigation Bar -->
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTab('creatorTab', this)">Link Creator</button>
+        <button class="tab-btn" onclick="switchTab('downloaderTab', this)">Bulk Downloader</button>
+    </div>
+
+    <!-- Tab 1: Link Creator -->
+    <div id="creatorTab" class="tab-content active">
+        <p>যেকোনো টেক্সট বা এলোমেলো লিঙ্ক পেস্ট করুন। শুধুমাত্র গুগল ড্রাইভের লিঙ্ক চিনে নিয়ে এটি নতুন ডাউনলোড লিঙ্কে কনভার্ট করে দেবে।</p>
+        
+        <textarea id="creatorInput" placeholder="এখানে আপনার লিঙ্ক বা টেক্সট দিন..."></textarea>
+        
+        <div class="btn-container">
+            <button class="action-btn" onclick="generateDownloadLinks()">Generate Links</button>
+        </div>
+
+        <textarea id="creatorOutput" placeholder="কনভার্ট করা লিঙ্কগুলো এখানে দেখাবে..." readonly></textarea>
+        <div class="btn-container" id="copyContainer" style="display: none;">
+            <button class="action-btn" style="background-color: #34a853;" onclick="copyOutputText()">Copy Links</button>
+        </div>
+    </div>
+
+    <!-- Tab 2: Bulk Downloader -->
+    <div id="downloaderTab" class="tab-content">
+        <p>নিচের টেক্সট বক্সে আপনার লিঙ্কগুলো পেস্ট করুন এবং <b>Start Downloads</b> বাটনে ক্লিক করুন।</p>
+        
+        <textarea id="linksInput" placeholder="এখানে আপনার লিঙ্কগুলো দিন, যেমন:&#10;Lecture:01 https://drive.google.com/u/0/uc?id=1josJYNAkRyALl3mvYCiRie7vuJCL4cqX&export=download&#10;Lecture:02 https://drive.google.com/u/0/uc?id=10f96qzxIjCxzNVNU58PagzbJM_bqV1vw&export=download"></textarea>
+        
+        <div class="btn-container">
+            <button id="downloadBtn" class="action-btn" onclick="startBulkDownload()">Start Downloads</button>
+        </div>
+
+        <div id="status" class="status"></div>
+
+        <div class="note">
+            <b>টিপস:</b> প্রথমবার ক্লিক করার পর যদি ব্রাউজার থেকে <i>"Allow multiple downloads"</i> চাওয়া হয়, তবে অবশ্যই <b>Allow</b> বাটনে ক্লিক করবেন।
+        </div>
+    </div>
+</div>
+
+<script>
+    // ট্যাব পরিবর্তন করার ফাংশন
+    function switchTab(tabId, element) {
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => content.classList.remove('active'));
+
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        document.getElementById(tabId).classList.add('active');
+        element.classList.add('active');
+    }
+
+    // Tab 1: Link Creator Logic
+    function generateDownloadLinks() {
+        const input = document.getElementById('creatorInput').value;
+        const outputTextarea = document.getElementById('creatorOutput');
+        const copyContainer = document.getElementById('copyContainer');
+
+        // Regex for Google Drive File IDs
+        // Matches /d/FILE_ID, id=FILE_ID, or file/d/FILE_ID
+        const driveRegex = /(?:drive\.google\.com\/(?:[^\/]+\/)*?(?:file\/d\/|d\/|open\?id=)|docs\.google\.com\/(?:[^\/]+\/)*?d\/|drive\.google\.com\/uc\?id=)([a-zA-Z0-9_-]{25,})/g;
+
+        let match;
+        const extractedIds = [];
+
+        // Extract uniquely matching Drive IDs
+        while ((match = driveRegex.exec(input)) !== null) {
+            extractedIds.push(match[1]);
+        }
+
+        if (extractedIds.length === 0) {
+            alert('কোনো বৈধ গুগল ড্রাইভ লিঙ্ক বা File ID পাওয়া যায়নি!');
+            outputTextarea.value = '';
+            copyContainer.style.display = 'none';
+            return;
+        }
+
+        let formattedOutput = '';
+        extractedIds.forEach((fileId, index) => {
+            const lectureNum = String(index + 1).padStart(2, '0');
+            formattedOutput += `Lecture:${lectureNum}\nhttps://drive.google.com/u/0/uc?id=${fileId}&export=download\n\n`;
+        });
+
+        outputTextarea.value = formattedOutput.trim();
+        copyContainer.style.display = 'block';
+    }
+
+    function copyOutputText() {
+        const outputTextarea = document.getElementById('creatorOutput');
+        outputTextarea.select();
+        navigator.clipboard.writeText(outputTextarea.value);
+        alert('লিঙ্কগুলো কপি করা হয়েছে!');
+    }
+
+    // Tab 2: Bulk Downloader Logic
+    function startBulkDownload() {
+        const text = document.getElementById('linksInput').value;
+        const statusDiv = document.getElementById('status');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        const urlRegex = /(https?:\/\/[^\s]+)/g;
+        const matches = text.match(urlRegex);
+
+        if (!matches || matches.length === 0) {
+            alert('টেক্সট বক্সে কোনো বৈধ ড্রাইভ লিঙ্ক পাওয়া যায়নি!');
+            return;
+        }
+
+        downloadBtn.disabled = true;
+        statusDiv.innerText = `ডাউনলোড শুরু হচ্ছে... মোট লিঙ্ক: ${matches.length}টি`;
+
+        let index = 0;
+
+        function triggerNextDownload() {
+            if (index < matches.length) {
+                let url = matches[index];
+
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = url;
+                document.body.appendChild(iframe);
+
+                setTimeout(() => {
+                    document.body.removeChild(iframe);
+                }, 6000);
+
+                index++;
+                statusDiv.innerText = `ডাউনলোড হচ্ছে: ${index} / ${matches.length}`;
+
+                setTimeout(triggerNextDownload, 1200);
+            } else {
+                statusDiv.innerText = '✅ সবকটি ফাইলের ডাউনলোড প্রক্রিয়া সম্পন্ন হয়েছে!';
+                downloadBtn.disabled = false;
+            }
+        }
+
+        triggerNextDownload();
+    }
+</script>
+
+</body>
+</html>
