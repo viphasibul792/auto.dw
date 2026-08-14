@@ -18,6 +18,10 @@
 auto.dw/
 ├── README.md                      — full docs (build steps, permissions)
 ├── HANDOFF.md                     — this file
+├── master-prompt-v2.md            — the user's Universal Master Prompt (v2):
+│                                    HTML→Native Android conversion + auto GitHub
+│                                    upload (code + APK + HANDOFF.md) + resume guide.
+│                                    New chats should follow it.
 ├── original-app.html              — the original HTML app (source of truth)
 ├── DriveToolSuite-debug.apk       — prebuilt v1.0 APK
 ├── build.gradle / settings.gradle / gradle.properties / gradlew / gradle/wrapper/
