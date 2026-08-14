@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Page / container -->
+    <dimen name="page_padding">16dp</dimen>          <!-- body padding 20px -->
+    <dimen name="container_padding">20dp</dimen>     <!-- .container padding 25px -->
+    <dimen name="container_radius">10dp</dimen>      <!-- border-radius 10px -->
+    <dimen name="container_elevation">8dp</dimen>    <!-- box-shadow 0 4px 15px -->
+    <dimen name="container_max_width">650dp</dimen>  <!-- max-width 650px -->
+
+    <!-- Spacing -->
+    <dimen name="space_medium">10dp</dimen>
+    <dimen name="space_large">15dp</dimen>
+    <dimen name="space_xlarge">20dp</dimen>
+
+    <!-- Typography -->
+    <dimen name="text_title">20sp</dimen>            <!-- h2 -->
+    <dimen name="text_body">14sp</dimen>             <!-- p / textarea -->
+    <dimen name="text_button">16sp</dimen>           <!-- .action-btn -->
+    <dimen name="text_tab">15sp</dimen>              <!-- .tab-btn -->
+    <dimen name="text_note">13sp</dimen>             <!-- .note -->
+    <dimen name="text_status">15sp</dimen>           <!-- .status -->
+
+    <!-- Components -->
+    <dimen name="input_height">200dp</dimen>         <!-- textarea height 200px -->
+    <dimen name="input_border">1dp</dimen>
+    <dimen name="input_border_focused">2dp</dimen>
+    <dimen name="input_corner_radius">6dp</dimen>    <!-- textarea border-radius 6px -->
+    <dimen name="button_corner_radius">6dp</dimen>   <!-- button border-radius 6px -->
+    <dimen name="button_min_width">180dp</dimen>
+    <dimen name="note_border">4dp</dimen>            <!-- .note left border 4px -->
+
+    <!-- Tabs -->
+    <dimen name="tab_bottom_border">2dp</dimen>      <!-- .nav-tabs border-bottom 2px -->
+    <dimen name="tab_indicator_height">3dp</dimen>   <!-- .tab-btn.active border-bottom 3px -->
+</resources>

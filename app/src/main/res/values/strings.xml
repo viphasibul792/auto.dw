@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Google Drive Tool Suite</string>
+    <string name="title">Google Drive Tool Suite</string>
+
+    <!-- Tabs -->
+    <string name="tab_link_creator">Link Creator</string>
+    <string name="tab_bulk_downloader">Bulk Downloader</string>
+
+    <!-- Tab 1: Link Creator -->
+    <string name="creator_description">যেকোনো টেক্সট বা এলোমেলো লিঙ্ক পেস্ট করুন। শুধুমাত্র গুগল ড্রাইভের লিঙ্ক চিনে নিয়ে এটি নতুন ডাউনলোড লিঙ্কে কনভার্ট করে দেবে।</string>
+    <string name="creator_input_hint">এখানে আপনার লিঙ্ক বা টেক্সট দিন...</string>
+    <string name="creator_output_hint">কনভার্ট করা লিঙ্কগুলো এখানে দেখাবে...</string>
+    <string name="action_generate_links">Generate Links</string>
+    <string name="action_copy_links">Copy Links</string>
+
+    <!-- Tab 2: Bulk Downloader -->
+    <string name="downloader_description">নিচের টেক্সট বক্সে আপনার লিঙ্কগুলো পেস্ট করুন এবং Start Downloads বাটনে ক্লিক করুন।</string>
+    <string name="downloader_description_bold">Start Downloads</string>
+    <string name="downloader_input_hint">এখানে আপনার লিঙ্কগুলো দিন, যেমন:\nLecture:01 https://drive.google.com/u/0/uc?id=1josJYNAkRyALl3mvYCiRie7vuJCL4cqX&amp;export=download\nLecture:02 https://drive.google.com/u/0/uc?id=10f96qzxIjCxzNVNU58PagzbJM_bqV1vw&amp;export=download</string>
+    <string name="action_start_downloads">Start Downloads</string>
+
+    <!-- Status messages (JS innerText values) -->
+    <string name="status_starting">ডাউনলোড শুরু হচ্ছে... মোট লিঙ্ক: %1$dটি</string>
+    <string name="status_progress">ডাউনলোড হচ্ছে: %1$d / %2$d</string>
+    <string name="status_complete">✅ সবকটি ফাইলের ডাউনলোড প্রক্রিয়া সম্পন্ন হয়েছে!</string>
+
+    <!-- Note box -->
+    <string name="note">টিপস: প্রথমবার ক্লিক করার পর যদি ব্রাউজার থেকে \"Allow multiple downloads\" চাওয়া হয়, তবে অবশ্যই Allow বাটনে ক্লিক করবেন।</string>
+    <string name="note_tips">টিপস:</string>
+    <string name="note_allow_multiple">Allow multiple downloads</string>
+    <string name="note_allow_button">Allow</string>
+
+    <!-- Alerts (JS alert() texts) -->
+    <string name="alert_no_drive_links">কোনো বৈধ গুগল ড্রাইভ লিঙ্ক বা File ID পাওয়া যায়নি!</string>
+    <string name="alert_no_urls">টেক্সট বক্সে কোনো বৈধ ড্রাইভ লিঙ্ক পাওয়া যায়নি!</string>
+    <string name="alert_links_copied">লিঙ্কগুলো কপি করা হয়েছে!</string>
+    <string name="ok">OK</string>
+
+    <!-- Download notifications -->
+    <string name="download_notification_title">ডাউনলোড %1$d</string>
+    <string name="download_enqueue_error">একটি লিংক ডাউনলোড শুরু করা যায়নি। আবার চেষ্টা করুন।</string>
+</resources>

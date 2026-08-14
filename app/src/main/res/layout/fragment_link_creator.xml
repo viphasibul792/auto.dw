@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tab 1: Link Creator - mirrors the HTML #creatorTab panel exactly. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/space_large">
+
+        <!-- <p> intro text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.4"
+            android:text="@string/creator_description"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/text_body" />
+
+        <!-- textarea#creatorInput -->
+        <EditText
+            android:id="@+id/creatorInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_medium"
+            android:background="@drawable/bg_input_selector"
+            android:gravity="top|start"
+            android:hint="@string/creator_input_hint"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:minHeight="@dimen/input_height"
+            android:padding="@dimen/space_large"
+            android:textColor="@color/text_input"
+            android:textColorHint="@color/hint"
+            android:textSize="@dimen/text_body" />
+
+        <!-- .btn-container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_large"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- button.action-btn: Generate Links -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/generateLinksBtn"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/button_min_width"
+                android:paddingStart="@dimen/space_xlarge"
+                android:paddingEnd="@dimen/space_xlarge"
+                android:text="@string/action_generate_links"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_button"
+                app:backgroundTint="@color/color_action_button"
+                app:cornerRadius="@dimen/button_corner_radius" />
+        </LinearLayout>
+
+        <!-- textarea#creatorOutput (readonly) -->
+        <EditText
+            android:id="@+id/creatorOutput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_medium"
+            android:background="@drawable/bg_input_selector"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:gravity="top|start"
+            android:hint="@string/creator_output_hint"
+            android:importantForAutofill="no"
+            android:inputType="none"
+            android:minHeight="@dimen/input_height"
+            android:padding="@dimen/space_large"
+            android:textColor="@color/text_input"
+            android:textColorHint="@color/hint"
+            android:textIsSelectable="false"
+            android:textSize="@dimen/text_body" />
+
+        <!-- #copyContainer (hidden until links are generated) -->
+        <LinearLayout
+            android:id="@+id/copyContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_large"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <!-- green Copy Links button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/copyLinksBtn"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minWidth="@dimen/button_min_width"
+                android:paddingStart="@dimen/space_xlarge"
+                android:paddingEnd="@dimen/space_xlarge"
+                android:text="@string/action_copy_links"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_button"
+                app:backgroundTint="@color/color_copy_button"
+                app:cornerRadius="@dimen/button_corner_radius" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

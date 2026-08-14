@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- .tab-btn: 15px, weight 600, no uppercase -->
+    <style name="TextAppearance.DriveToolSuite.Tab" parent="android:TextAppearance">
+        <item name="android:textSize">@dimen/text_tab</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+</resources>

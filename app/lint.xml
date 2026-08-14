@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <!--
+        The status string "ডাউনলোড শুরু হচ্ছে..." deliberately keeps the three
+        ASCII dots exactly as written in the original HTML app
+        (statusDiv.innerText = `ডাউনলোড শুরু হচ্ছে... মোট লিঙ্ক: ...`),
+        so the UI text matches the source app character-for-character.
+    -->
+    <issue id="TypographyEllipsis" severity="ignore" />
+</lint>

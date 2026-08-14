@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Light-only theme matching the HTML app's light appearance
+        (the HTML has no dark mode, so no values-night variant is needed).
+
+        Theme.DriveToolSuite.Base holds the shared items and
+        Theme.DriveToolSuite is the final theme used by the manifest.
+    -->
+    <style name="Theme.DriveToolSuite.Base" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/google_blue</item>
+        <item name="colorPrimaryVariant">@color/google_blue_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/green</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="android:windowBackground">@color/bg_page</item>
+        <item name="android:statusBarColor">@color/bg_page</item>
+        <item name="android:navigationBarColor">@color/bg_page</item>
+        <!-- Dark status-bar icons on the light background (API 23+, our minSdk) -->
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.DriveToolSuite" parent="Theme.DriveToolSuite.Base" />
+</resources>

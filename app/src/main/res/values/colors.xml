@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Design system extracted from the HTML/CSS palette -->
+    <color name="bg_page">#F4F6F9</color>          <!-- body background -->
+    <color name="white">#FFFFFF</color>
+    <color name="google_blue">#1A73E8</color>       <!-- primary action / active tab -->
+    <color name="google_blue_dark">#1557B0</color>  <!-- hover state -->
+    <color name="green">#34A853</color>             <!-- Copy Links button -->
+    <color name="text_primary">#333333</color>      <!-- .status color -->
+    <color name="text_secondary">#5F6368</color>    <!-- <p> color / idle tab -->
+    <color name="text_input">#202124</color>
+    <color name="hint">#9AA0A6</color>
+    <color name="border">#DADCE0</color>            <!-- textarea + tab border -->
+    <color name="disabled">#CCCCCC</color>          <!-- button:disabled -->
+    <color name="note_bg">#E8F0FE</color>           <!-- .note background -->
+    <color name="note_text">#1967D2</color>         <!-- .note text -->
+    <color name="tab_ripple">#40F1F3F4</color>      <!-- hover ripple on tabs (from .tab-btn:hover #F1F3F4) -->
+</resources>

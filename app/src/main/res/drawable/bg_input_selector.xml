@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- textarea styling: 1dp #dadce0 border, 6dp radius, focus -> #1a73e8 border -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+            <stroke
+                android:width="@dimen/input_border_focused"
+                android:color="@color/google_blue" />
+            <corners android:radius="@dimen/input_corner_radius" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+            <stroke
+                android:width="@dimen/input_border"
+                android:color="@color/border" />
+            <corners android:radius="@dimen/input_corner_radius" />
+        </shape>
+    </item>
+</selector>
